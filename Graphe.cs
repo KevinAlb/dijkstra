@@ -87,6 +87,10 @@ namespace Carte_routiere
 
             var minimal = noeud[0];
             noeud.Remove(minimal);
+            if (distance[minimal] == double.MaxValue)
+            {
+                break;
+            }
             //Si on a trouvé le chemin minimal
             if (minimal.Equals(arrivee))
             {
@@ -98,10 +102,7 @@ namespace Carte_routiere
                     }
                  break;
             }
-            if (distance[minimal] == double.MaxValue)
-            {
-                break;
-            }
+            
 
             //On parcours les voisins du noeud minimal
             foreach (var neighbor in sommets[minimal])
